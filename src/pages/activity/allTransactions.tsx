@@ -1,18 +1,17 @@
 // import { Index } from "../components/common/Header/index";
 
 import type { SelectChangeEvent } from "@mui/material";
-import {
-  Autocomplete,
-  FormControl,
-  MenuItem,
-  Select,
-  Stack,
-} from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import TextField from "@mui/material/TextField";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "bootstrap/dist/css/bootstrap.css";
 import { Layout } from "components/common/Layout";
 import { useState } from "react";
 
+// import 'first'
 const Archive = [{ title: "Active" }, { title: "Archived" }, { title: "All" }];
 
 const Transaction = [
@@ -84,19 +83,15 @@ const Activity = () => {
             <div className="d-flex mt-5">
               <FormControl style={{ width: "20%" }}>
                 <Select
-                  className="rounded-0"
-                  // labelId="demo-simple-select-label"
-                  // id="demo-simple-select"
                   value={age}
-                  // label="Age"
                   onChange={handleChange}
-                  defaultValue="Case"
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
                 >
-                  <MenuItem value="Case">Case ID</MenuItem>
-                  <MenuItem value={10}>Transaction ID</MenuItem>
-                  <MenuItem value={20}>Invoice ID</MenuItem>
-                  <MenuItem value={30}>Name</MenuItem>
-                  <MenuItem value={40}>Email</MenuItem>
+                  <MenuItem value="">All</MenuItem>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -108,57 +103,90 @@ const Activity = () => {
             </div>
 
             <div className="dropdown_div">
-              <Stack spacing={1} sx={{ width: 300 }}>
-                <Autocomplete
-                  {...defaultProps}
-                  id="disable-close-on-select"
-                  disableCloseOnSelect
-                  renderInput={(params) => (
-                    <TextField {...params} label="Archive" variant="standard" />
-                  )}
-                />
-              </Stack>
+              <FormControl sx={{ m: 1, minWidth: 50 }}>
+                <InputLabel htmlFor="grouped-native-select">Archive</InputLabel>
+                <Select
+                  native
+                  defaultValue=""
+                  id="grouped-native-select"
+                  label="Archive"
+                  className="select_lable"
+                >
+                  <optgroup label="">
+                    <option value={2}>Active</option>
+                    <option value={3}>Archive</option>
+                    <option value={4}>All</option>
+                  </optgroup>
+                </Select>
+              </FormControl>
 
-              <Stack spacing={1} sx={{ width: 300 }}>
-                <Autocomplete
-                  {...defaultPropstype}
-                  id="disable-close-on-select"
-                  disableCloseOnSelect
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Transaction Type"
-                      variant="standard"
-                    />
-                  )}
-                />
-              </Stack>
+              <FormControl sx={{ m: 1, minWidth: 50 }}>
+                <InputLabel htmlFor="grouped-native-select">
+                  Grouping
+                </InputLabel>
+                <Select
+                  native
+                  defaultValue=""
+                  id="grouped-native-select"
+                  label="Grouping"
+                  className="select_lable"
+                >
+                  <optgroup label="All activity"></optgroup>
+                  <optgroup label="Transactions">
+                    <option value={2}>Payments received</option>
+                    <option value={3}>Payments sent</option>
+                    <option value={4}>Payments transferred</option>
+                    <option value={5}>Money added</option>
+                    <option value={6}>Refunds</option>
+                    <option value={7}> Billing agreements and profiles</option>
+                    <option value={8}>Reversals</option>
+                    <option value={9}>Money added </option>
+                    <option value={11}>Currency conversions</option>
+                  </optgroup>
+                </Select>
+              </FormControl>
 
-              <Stack spacing={1} sx={{ width: 300 }}>
-                <Autocomplete
-                  {...defaultPropsDate}
-                  id="disable-close-on-select"
-                  disableCloseOnSelect
-                  renderInput={(params) => (
-                    <TextField {...params} label="Date" variant="standard" />
-                  )}
-                />
-              </Stack>
+              <FormControl sx={{ m: 1, minWidth: 50 }}>
+                <InputLabel htmlFor="grouped-native-select">Archive</InputLabel>
+                <Select
+                  native
+                  defaultValue=""
+                  id="grouped-native-select"
+                  label="Archive"
+                  className="select_lable"
+                >
+                  <optgroup label="">
+                    <option value={2}>Past 30 days</option>
+                    <option value={3}>Past 90 days</option>
+                    <option value={4}>2023</option>
+                    <option value={4}>2022</option>
+                    <option value={4}>
+                      {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DemoContainer components={["DatePicker"]}>
+                          <DatePicker label="Basic date picker" />
+                        </DemoContainer>
+                      </LocalizationProvider> */}
+                    </option>
+                  </optgroup>
+                </Select>
+              </FormControl>
 
-              <Stack spacing={1} sx={{ width: 300 }}>
-                <Autocomplete
-                  {...defaultProps}
-                  id="disable-close-on-select"
-                  disableCloseOnSelect
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Amount & Currency"
-                      variant="standard"
-                    />
-                  )}
-                />
-              </Stack>
+              <FormControl sx={{ m: 1, minWidth: 50 }}>
+                <InputLabel htmlFor="grouped-native-select">Archive</InputLabel>
+                <Select
+                  native
+                  defaultValue=""
+                  id="grouped-native-select"
+                  label="Archive"
+                  className="select_lable"
+                >
+                  <optgroup label="">
+                    <option value={2}>Active</option>
+                    <option value={3}>Archive</option>
+                    <option value={4}>All</option>
+                  </optgroup>
+                </Select>
+              </FormControl>
             </div>
           </div>
           <hr />
