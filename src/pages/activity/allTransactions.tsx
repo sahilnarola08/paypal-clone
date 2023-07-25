@@ -82,7 +82,7 @@ const Activity = () => {
         <div>
           <div className="activity_section">
             <div className="d-flex mt-5">
-              <FormControl style={{ width: "20%" }}>
+              <FormControl style={{ width: "20%" }} className="search_dropdown">
                 <Select
                   value={age}
                   onChange={handleChange}
@@ -90,9 +90,14 @@ const Activity = () => {
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="">All</MenuItem>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={1}>Email Address</MenuItem>
+                  <MenuItem value={2}>Transaction ID</MenuItem>
+                  <MenuItem value={3}>Case ID</MenuItem>
+                  <MenuItem value={4}>Last Name</MenuItem>
+                  <MenuItem value={5}>First Name</MenuItem>
+                  <MenuItem value={6}>Bussiness Name</MenuItem>
+                  <MenuItem value={7}>Card number</MenuItem>
+                  <MenuItem value={7}>Receipt ID</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -123,13 +128,13 @@ const Activity = () => {
 
               <FormControl sx={{ m: 1, minWidth: 50 }}>
                 <InputLabel htmlFor="grouped-native-select">
-                  Grouping
+                  Transaction type
                 </InputLabel>
                 <Select
                   native
                   defaultValue=""
                   id="grouped-native-select"
-                  label="Grouping"
+                  label="Transaction type"
                   className="select_lable"
                 >
                   <optgroup label="All activity"></optgroup>
@@ -147,45 +152,41 @@ const Activity = () => {
                 </Select>
               </FormControl>
 
-              <FormControl sx={{ m: 1, minWidth: 50 }}>
-                <InputLabel htmlFor="grouped-native-select">Archive</InputLabel>
+              <FormControl
+                style={{ width: "20%", margin: "8px" }}
+                className="dropdown"
+              >
                 <Select
-                  native
-                  defaultValue=""
-                  id="grouped-native-select"
-                  label="Archive"
-                  className="select_lable"
+                  value={age}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
                 >
-                  <optgroup label="">
-                    <option value={2}>Past 30 days</option>
-                    <option value={3}>Past 90 days</option>
-                    <option value={4}>2023</option>
-                    <option value={4}>2022</option>
-                    <option value={4}>
-                      {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer components={["DatePicker"]}>
-                          <DatePicker label="Basic date picker" />
-                        </DemoContainer>
-                      </LocalizationProvider> */}
-                    </option>
-                  </optgroup>
+                  <MenuItem value="">All</MenuItem>
+                  <MenuItem value={1}>Email Address</MenuItem>
+                  <MenuItem value={2}>Transaction ID</MenuItem>
+                  <button type="button" className="apply_btn">
+                    Apply
+                  </button>
                 </Select>
               </FormControl>
 
-              <FormControl sx={{ m: 1, minWidth: 50 }}>
-                <InputLabel htmlFor="grouped-native-select">Archive</InputLabel>
+              <FormControl
+                style={{ width: "20%", margin: "8px" }}
+                className="dropdown"
+              >
                 <Select
-                  native
-                  defaultValue=""
-                  id="grouped-native-select"
-                  label="Archive"
-                  className="select_lable"
+                  value={age}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
                 >
-                  <optgroup label="">
-                    <option value={2}>Active</option>
-                    <option value={3}>Archive</option>
-                    <option value={4}>All</option>
-                  </optgroup>
+                  <MenuItem value="">All</MenuItem>
+                  <MenuItem value={1}>Email Address</MenuItem>
+                  <MenuItem value={2}>Transaction ID</MenuItem>
+                  <button type="button" className="apply_btn">
+                    Apply
+                  </button>
                 </Select>
               </FormControl>
             </div>
@@ -195,14 +196,13 @@ const Activity = () => {
           <div className="transactions_section">
             <div className="transactions">
               There are no transactions for this date range.
+              <Link
+                className="text-decoration-none download"
+                href="/activity/allReports"
+              >
+                Download
+              </Link>
             </div>
-
-            <Link
-              className="text-decoration-none text-black"
-              href="/activity/allReports"
-            >
-              Download
-            </Link>
           </div>
         </div>
       </Layout>
