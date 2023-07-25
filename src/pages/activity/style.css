@@ -4,7 +4,38 @@
 .search .mui-style-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border-radius: 0;
 }
-
+.landingPage__tile {
+  width: 1020px;
+  border-radius: 6px;
+  background: linear-gradient(304.65deg, #003087 0%, #009cde 120.46%);
+  color: white;
+  padding: 42px 60px;
+  margin-top: 95px;
+  margin-bottom: 500px;
+  margin-inline: auto;
+}
+.roket-img {
+  height: 252.82966614px;
+  width: 204.43612671px;
+  filter: invert(100%) sepia(100%) saturate(8%) hue-rotate(158deg)
+    brightness(116%) contrast(103%);
+}
+.start-btn {
+  background: #ffffff;
+  color: #0070ba;
+  height: 48px;
+  width: 294px;
+  border-radius: 50px;
+  font-family: "PayPalSansSmall", Helvetica Neue, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.5s ease-in;
+}
+.start-btn:hover {
+  background-color: #003087;
+  color: #ffffff;
+}
 .activity_section {
   margin: 20px 100px;
 }
@@ -29,11 +60,11 @@
 form.MuiBox-root.mui-style-13r4j3i {
   width: 100vw;
 }
-.mui-style-wb57ya-MuiFormControl-root-MuiTextField-root {
+/* .mui-style-wb57ya-MuiFormControl-root-MuiTextField-root {
   width: 165px;
   border: 1px solid #b7bcbf;
   padding: 5px;
-}
+} */
 .mui-style-d43zqd-MuiStack-root {
   width: auto;
 }
@@ -83,14 +114,17 @@ label#disable-close-on-select-label {
   justify-content: center;
   align-items: center;
 }
-.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot.mui-style-bg080o-MuiInputBase-root-MuiOutlinedInput-root {
+/* .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot.mui-style-bg080o-MuiInputBase-root-MuiOutlinedInput-root {
   border: 1px solid #1976d2;
   border-radius: 0px;
+} */
+.mui-style-gcwvw8-MuiAutocomplete-root .MuiOutlinedInput-root {
+  padding: 3px;
 }
-.MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.mui-style-1ks6xv3-MuiInputBase-root-MuiOutlinedInput-root {
+/* .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.mui-style-1ks6xv3-MuiInputBase-root-MuiOutlinedInput-root {
   border-radius: 0px;
   border: 1px solid #1976d2;
-}
+} */
 
 / Media query / @media (max-width: 989px) and (min-width: 768px) {
   .activity_section {
