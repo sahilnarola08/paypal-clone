@@ -121,23 +121,14 @@ label#disable-close-on-select-label {
 }
 
 .transactions_section {
-  background-color: #f5f7fa;
-  height: 100vh;
-  position: relative;
+  background-color: #efefef;
+  height: 90vh;
 }
 
 .transactions {
-  background-color: white;
-  height: 150px;
-  width: 86%;
-  margin: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  padding-top: 18%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 /* .MuiInputBase-root.MuiOutlinedInput-root.MuiInputBase-colorPrimary.MuiInputBase-fullWidth.MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot.mui-style-bg080o-MuiInputBase-root-MuiOutlinedInput-root {
   border: 1px solid #1976d2;

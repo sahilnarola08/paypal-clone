@@ -1,79 +1,31 @@
 // import { Index } from "../components/common/Header/index";
 
 import type { SelectChangeEvent } from "@mui/material";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Card, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import TextField from "@mui/material/TextField";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 // import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "bootstrap/dist/css/bootstrap.css";
 import { Layout } from "components/common/Layout";
 import Link from "next/link";
 import { useState } from "react";
 
-// import 'first'
-const Archive = [{ title: "Active" }, { title: "Archived" }, { title: "All" }];
-
-const Transaction = [
-  { title: "All activity" },
-  { title: "Transactions" },
-  { title: "Payments received" },
-  { title: "Payments sent" },
-  { title: "Payments transferred" },
-  { title: "Payments transferred" },
-  { title: "Money added" },
-  { title: "Refunds" },
-  { title: "Billing agreements and profiles" },
-];
-
-const Date = [
-  { title: "Past 30 days" },
-  { title: "Past 90 days" },
-  { title: "2023" },
-  { title: "2022" },
-];
 const Activity = () => {
-  // const top100Films = [
-  //   { label: "All", year: 1994 },
-  //   { label: "Email Address", year: 1972 },
-  //   { label: "Transaction ID", year: 1974 },
-  //   { label: "Case ID" },
-  //   { label: "Last Name" },
-  //   { label: "First Name" },
-  //   { label: "Business Name" },
-  //   { label: "Card Number" },
-  //   { label: "Receipt ID" },
-  //   { label: "Invoice ID" },
-  //   { label: "Auction Item Number" },
-  //   { label: "Order ID" },
-  //   { label: "Billing Agreement" },
-  //   { label: "Profile ID" },
-  //   { label: "Store ID " },
-  //   { label: "Payout ID" },
-  // ];
-
-  interface FilmOptionType {
-    title: string;
-    year: number;
-  }
-  const defaultProps = {
-    options: Archive,
-    getOptionLabel: (option: FilmOptionType) => option.title,
-  };
-  const defaultPropstype = {
-    options: Transaction,
-    getOptionLabel: (option: FilmOptionType) => option.title,
-  };
-
-  const defaultPropsDate = {
-    options: Date,
-    getOptionLabel: (option: FilmOptionType) => option.title,
-  };
   const [age, setAge] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
+  };
+  const [amount, setAmount] = useState("");
+
+  const handleValueChange = (event: SelectChangeEvent) => {
+    setAmount(event.target.value as string);
   };
 
   return (
@@ -153,21 +105,29 @@ const Activity = () => {
               </FormControl>
 
               <FormControl
+                sx={{ m: 1, minWidth: 50 }}
                 style={{ width: "20%", margin: "8px" }}
-                className="dropdown"
               >
+                <InputLabel id="demo-simple-select-label">Date</InputLabel>
                 <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
                   value={age}
+                  label="Date"
                   onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
+                  defaultValue=""
                 >
-                  <MenuItem value="">All</MenuItem>
-                  <MenuItem value={1}>Email Address</MenuItem>
-                  <MenuItem value={2}>Transaction ID</MenuItem>
-                  <button type="button" className="apply_btn">
-                    Apply
-                  </button>
+                  <MenuItem value={10}>Past 30 days</MenuItem>
+                  <MenuItem value={20}>Past 90 days</MenuItem>
+                  <MenuItem value={30}>2023</MenuItem>
+                  <MenuItem value={40}>2022</MenuItem>
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DemoContainer components={["DateRangePicker"]}>
+                      <DateRangePicker
+                        localeText={{ start: "Check-in", end: "Check-out" }}
+                      />
+                    </DemoContainer>
+                  </LocalizationProvider>
                 </Select>
               </FormControl>
 
@@ -178,12 +138,37 @@ const Activity = () => {
                 <Select
                   value={age}
                   onChange={handleChange}
-                  displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
-                  <MenuItem value="">All</MenuItem>
-                  <MenuItem value={1}>Email Address</MenuItem>
-                  <MenuItem value={2}>Transaction ID</MenuItem>
+                  <Select
+                    value={amount}
+                    onChange={handleValueChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    style={{ width: "90%", margin: "8px" }}
+                  >
+                    <MenuItem value="">All</MenuItem>
+                    <MenuItem value={1}>Email Address</MenuItem>
+                    <MenuItem value={2}>Transaction ID</MenuItem>
+                  </Select>
+                  <TextField
+                    disabled
+                    id="outlined-disabled"
+                    label="Minimum"
+                    defaultValue="0"
+                    variant="outlined"
+                    style={{ width: "90%" }}
+                    className="d-flex m-auto mb-2"
+                  />
+                  <TextField
+                    id="outlined-basic"
+                    label="Maximum"
+                    defaultValue="0"
+                    variant="outlined"
+                    style={{ width: "90%" }}
+                    className="d-flex m-auto mb-2"
+                    disabled
+                  />
                   <button type="button" className="apply_btn">
                     Apply
                   </button>
@@ -193,16 +178,22 @@ const Activity = () => {
           </div>
           <hr />
 
-          <div className="transactions_section">
-            <div className="transactions">
-              There are no transactions for this date range.
-              <Link
-                className="text-decoration-none download"
-                href="/activity/allReports"
-              >
-                Download
-              </Link>
-            </div>
+          <div>
+            <Card sx={{ minWidth: 275 }}>
+              <div className="transactions_section">
+                <div className="d-flex justify-content-end me-4 mt-4">
+                  <Link
+                    className="text-decoration-none text-black"
+                    href="/activity/allReports"
+                  >
+                    Download
+                  </Link>
+                </div>
+                <div className="transactions">
+                  <p>There are no transactions for this date range.</p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </Layout>
