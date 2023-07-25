@@ -1,6 +1,9 @@
 .blue-color {
   color: #0070ba;
 }
+.text-black {
+  color: #000 !important;
+}
 .search .mui-style-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border-radius: 0;
 }
@@ -39,6 +42,19 @@
 .activity_section {
   margin: 20px 100px;
 }
+/* .activity-menu {
+  opacity: 0;
+}
+.activity-link:hover .activity-menu {
+  opacity: 1;
+  position: absolute;
+  transform: none;
+  transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  top: 108px;
+  left: 142px;
+  transform-origin: 0px 0px;
+} */
 
 .dropdown_div {
   display: flex;

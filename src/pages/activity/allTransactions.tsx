@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 // import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import "bootstrap/dist/css/bootstrap.css";
 import { Layout } from "components/common/Layout";
+import Link from "next/link";
 import { useState } from "react";
 
 // import 'first'
@@ -196,13 +197,12 @@ const Activity = () => {
               There are no transactions for this date range.
             </div>
 
-            <button
-              className="download"
-              type="button"
-              onClick={() => "AllReports"}
+            <Link
+              className="text-decoration-none text-black"
+              href="/activity/allReports"
             >
               Download
-            </button>
+            </Link>
           </div>
         </div>
       </Layout>
